@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentA">
+
+    <!-- Login Screen -->
+    <fragment
+        android:id="@+id/fragmentA"
+        android:name="com.example.mygragment.FragmentA"
+        android:label="Login Screen"
+        tools:layout="@layout/fragment_a">
+        <action
+            android:id="@+id/action_fragmentA_to_fragmentB"
+            app:destination="@id/fragmentB" />
+    </fragment>
+
+    <!-- Dashboard -->
+    <fragment
+        android:id="@+id/fragmentB"
+        android:name="com.example.mygragment.FragmentB"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_b">
+
+        <!-- Add keypass argument -->
+        <argument
+            android:name="keypass"
+            app:argType="string"
+            app:nullable="false" />
+
+        <action
+            android:id="@+id/action_fragmentB_to_fragmentC"
+            app:destination="@id/fragmentC" />
+
+        <!-- Add logout action -->
+        <action
+            android:id="@+id/action_fragmentB_to_fragmentA"
+            app:destination="@id/fragmentA"
+            app:popUpTo="@id/fragmentA"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Animal Details -->
+    <fragment
+        android:id="@+id/fragmentC"
+        android:name="com.example.mygragment.FragmentC"
+        android:label="Animal Details"
+        tools:layout="@layout/fragment_c">
+
+        <!-- Argument for passing Entity -->
+        <argument
+            android:name="entity"
+            app:argType="com.example.mygragment.Entity"
+            app:nullable="false" />
+
+        <!-- Back to Dashboard -->
+        <action
+            android:id="@+id/action_fragmentC_to_fragmentB"
+            app:destination="@id/fragmentB"
+            app:popUpTo="@id/fragmentC"
+            app:popUpToInclusive="true" />
+
+        <!-- Logout to Login -->
+        <action
+            android:id="@+id/action_fragmentC_to_fragmentA"
+            app:destination="@id/fragmentA"
+            app:popUpTo="@id/fragmentA"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>

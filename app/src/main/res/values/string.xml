@@ -1,0 +1,4 @@
+<!-- res/values/strings.xml -->
+<resources>
+    <string name="author_profile_picture">Author Profile Picture</string>
+</resources>
