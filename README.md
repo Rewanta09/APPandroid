@@ -242,10 +242,10 @@ Login Screen → Dashboard Screen → Details Screen
 
 **Description**: Verifies authentication API functionality  
 **Key Tests**:
-- Successful authentication returns keypass
-- Proper error handling
+Successful authentication returns keypass
+Proper error handling
 
-```kotlin
+kotlin
 @Test
 fun `login returns keypass`() = runBlocking {
     mockServer.enqueue(MockResponse().setBody("""{"keypass":"test123"}"""))
@@ -278,7 +278,7 @@ fun `invalid keypass returns 401`() = runBlocking {
     val response = dashboardApi.getEntities("invalid_key"))
     assertEquals(401, response.code())
 }
-#🖇️ EntityAdapterTest
+# #🖇️ EntityAdapterTest
 **Description**: Tests RecyclerView adapter functionality
 **Key Tests**:
 
