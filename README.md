@@ -245,7 +245,7 @@ Login Screen → Dashboard Screen → Details Screen
 Successful authentication returns keypass
 Proper error handling
 
-kotlin
+```kotlin
 @Test
 fun `login returns keypass`() = runBlocking {
     mockServer.enqueue(MockResponse().setBody("""{"keypass":"test123"}"""))
@@ -264,7 +264,7 @@ Unauthorized access handling
 
 Server error responses
 
-kotlin
+```kotlin
 @Test
 fun `get entities returns valid data`() = runBlocking {
     mockServer.enqueue(MockResponse().setBody(mockEntitiesJson))
@@ -290,7 +290,7 @@ View formatting (lifespan, status)
 
 Item count accuracy
 
-kotlin
+```kotlin
 @Test
 fun `binds data correctly`() {
     val binding = getBindingAtPosition(0)
