@@ -252,9 +252,9 @@ fun `login returns keypass`() = runBlocking {
     val response = authApi.authenticate(Credentials("user","pass"))
     assertEquals("test123", response.body()?.keypass)
 }
-📊 DashboardApiTest
-Description: Tests entity data retrieval from dashboard API
-Key Tests:
+## 📊 DashboardApiTest
+**Description**: Tests entity data retrieval from dashboard API
+**Key Tests**:
 
 Valid data parsing with multiple entities
 
@@ -278,9 +278,9 @@ fun `invalid keypass returns 401`() = runBlocking {
     val response = dashboardApi.getEntities("invalid_key"))
     assertEquals(401, response.code())
 }
-🖇️ EntityAdapterTest
-Description: Tests RecyclerView adapter functionality
-Key Tests:
+#🖇️ EntityAdapterTest
+**Description**: Tests RecyclerView adapter functionality
+**Key Tests**:
 
 Correct data binding to views
 
