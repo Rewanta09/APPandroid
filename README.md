@@ -245,13 +245,8 @@ Login Screen → Dashboard Screen → Details Screen
 Successful authentication returns keypass
 Proper error handling
 
-```kotlin
-@Test
-fun `login returns keypass`() = runBlocking {
-    mockServer.enqueue(MockResponse().setBody("""{"keypass":"test123"}"""))
-    val response = authApi.authenticate(Credentials("user","pass"))
-    assertEquals("test123", response.body()?.keypass)
-}```
+
+}
 ## 📊 DashboardApiTest
 **Description**: Tests entity data retrieval from dashboard API
 **Key Tests**:
@@ -264,20 +259,8 @@ Unauthorized access handling
 
 Server error responses
 
-```kotlin
-@Test
-fun `get entities returns valid data`() = runBlocking {
-    mockServer.enqueue(MockResponse().setBody(mockEntitiesJson))
-    val response = dashboardApi.getEntities("valid_key"))
-    assertEquals(3, response.body()?.entities?.size)
-}
 
-@Test
-fun `invalid keypass returns 401`() = runBlocking {
-    mockServer.enqueue(MockResponse().setResponseCode(401))
-    val response = dashboardApi.getEntities("invalid_key"))
-    assertEquals(401, response.code())
-}```
+}
 # #🖇️ EntityAdapterTest
 **Description**: Tests RecyclerView adapter functionality
 **Key Tests**:
@@ -290,20 +273,6 @@ View formatting (lifespan, status)
 
 Item count accuracy
 
-```kotlin
-@Test
-fun `binds data correctly`() {
-    val binding = getBindingAtPosition(0)
-    assertEquals("African Elephant", binding.tvSpecies.text)
-    assertEquals("Vulnerable", binding.tvConservationStatus.text)
-}
-
-@Test
-fun `click triggers callback with correct item`() {
-    binding.root.performClick()
-    verify(onItemClick).invoke(testEntities[0])
-}```
-🚀 Test Executio
 
 ## 🐛 Troubleshooting
 
