@@ -251,7 +251,7 @@ fun `login returns keypass`() = runBlocking {
     mockServer.enqueue(MockResponse().setBody("""{"keypass":"test123"}"""))
     val response = authApi.authenticate(Credentials("user","pass"))
     assertEquals("test123", response.body()?.keypass)
-}
+}```
 ## 📊 DashboardApiTest
 **Description**: Tests entity data retrieval from dashboard API
 **Key Tests**:
@@ -277,7 +277,7 @@ fun `invalid keypass returns 401`() = runBlocking {
     mockServer.enqueue(MockResponse().setResponseCode(401))
     val response = dashboardApi.getEntities("invalid_key"))
     assertEquals(401, response.code())
-}
+}```
 # #🖇️ EntityAdapterTest
 **Description**: Tests RecyclerView adapter functionality
 **Key Tests**:
@@ -302,7 +302,7 @@ fun `binds data correctly`() {
 fun `click triggers callback with correct item`() {
     binding.root.performClick()
     verify(onItemClick).invoke(testEntities[0])
-}
+}```
 🚀 Test Executio
 
 ## 🐛 Troubleshooting
